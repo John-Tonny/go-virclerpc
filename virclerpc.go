@@ -192,3 +192,22 @@ func (c *RPCClient) DecodeRawTransactions(rawTxs []string) ([]*Transaction, erro
 	}
 	return txs, nil
 }
+
+/*
+GetMasterNode gets the latest block height.
+Note that The methods name is "Count" not "Height".
+*/
+func (c *RPCClient) GetMasterNode(cmd string) (MasterNodeStatus, error) {
+	resp, err := c.RPCClient.Call("masternode", cmd)
+	if err != nil {
+		return MasterNodeStatus{}, err
+	}
+
+	if resp.Error != nil {
+		return MasterNodeStatus{}, errors.New(resp.Error.Message)
+	}
+
+	var status MasterNodeStatus
+	resp.GetObject(&status)
+	return status, nil
+}

@@ -2,26 +2,26 @@ package virclerpc
 
 // Block ...
 type Block struct {
-	Hash          string   `json:"hash"`
-	Confirmations int32    `json:"confirmations"`
-	Strippedsize  int32    `json:"strippedsize"`
-	Size          int32    `json:"size"`
-	Weight        int32    `json:"weight"`
-	Height        int32    `json:"height"`
-	Version       int32    `json:"version"`
-	VersionHex    string   `json:"versionHex"`
-	Merkleroot    string   `json:"merkleroot"`
-	Witnessmerkleroot string `json:"witnessmerkleroot"`
-	Txs           []string `json:"tx"`
-	Time          int32    `json:"time"`
-	Mediantime    int32    `json:"mediantime"`
-	Nonce         int32    `json:"nonce"`
-	Bits          string   `json:"bits"`
-	Difficulty    float32  `json:"difficulty"`
-	Chainwork     string   `json:"chainwork"`
-	Txn	      int32    `json:"nTx"`
+	Hash              string   `json:"hash"`
+	Confirmations     int32    `json:"confirmations"`
+	Strippedsize      int32    `json:"strippedsize"`
+	Size              int32    `json:"size"`
+	Weight            int32    `json:"weight"`
+	Height            int32    `json:"height"`
+	Version           int32    `json:"version"`
+	VersionHex        string   `json:"versionHex"`
+	Merkleroot        string   `json:"merkleroot"`
+	Witnessmerkleroot string   `json:"witnessmerkleroot"`
+	Txs               []string `json:"tx"`
+	Time              int32    `json:"time"`
+	Mediantime        int32    `json:"mediantime"`
+	Nonce             int32    `json:"nonce"`
+	Bits              string   `json:"bits"`
+	Difficulty        float32  `json:"difficulty"`
+	Chainwork         string   `json:"chainwork"`
+	Txn               int32    `json:"nTx"`
 	PreviousBlockhash string   `json:"previousblockhash"`
-	NextBlockhash string   `json:"nextblockhash"`
+	NextBlockhash     string   `json:"nextblockhash"`
 }
 
 // Transaction ...
@@ -74,4 +74,11 @@ type VinCoinbaseTransaction struct {
 type ScriptSig struct {
 	Asm string `json:"asm"`
 	Hex string `json:"hex"`
+}
+
+type MasterNodeStatus struct {
+	Outpoint string `json:"outpoint"`
+	Service  string `json:"service"`
+	State    string `json:"state"`
+	Status   string `json:"status"`
 }
